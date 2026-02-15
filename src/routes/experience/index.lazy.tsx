@@ -1,5 +1,5 @@
 import { createLazyFileRoute } from '@tanstack/react-router'
-import {File,Folder} from '../../components/Types.tsx'
+import {File,Folder} from '../../components/Types'
 import { HomeFolder } from '../index.tsx' 
 import Options from '@/components/Options.tsx'
 

@@ -1,9 +1,7 @@
-import { useState,useContext,createContext } from 'react'
-import Footer from '@/components/Footer'
+import { useState} from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import Header from '@/components/Header';
 import Options from '@/components/Options';
-import {Folder} from '../components/Types.tsx'
+import {Folder} from '../components/Types'
 import { aboutFile } from './about/index.lazy';
 import { experienceFolder } from './experience/index.lazy.tsx';
 import { projectsFolder } from './projects/index.lazy.tsx';
