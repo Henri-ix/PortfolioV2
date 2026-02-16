@@ -1,6 +1,6 @@
 import { createLazyFileRoute } from '@tanstack/react-router'
-import {File} from '../../components/Types'
-import { HomeFolder } from '../index.tsx'
+import  type {File} from '../../components/Types'
+import { BaseFolder } from '../index.tsx'
 import Options from '@/components/Options.tsx'
 
 export const Route = createLazyFileRoute('/about/')({
@@ -15,6 +15,8 @@ export const aboutFile: File = {
 
 function RouteComponent() {
   return (
-    <Options folder={HomeFolder}/>
+    <div className='flex flex-row justify-between h-screen p-3'>
+      <Options folder={BaseFolder}/>
+    </div>
   )
 }

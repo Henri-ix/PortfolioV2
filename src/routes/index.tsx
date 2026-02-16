@@ -1,20 +1,29 @@
 import { useState} from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import Options from '@/components/Options';
-import {Folder} from '../components/Types'
+import type  {Folder,File} from '../components/Types'
 import { aboutFile } from './about/index.lazy';
 import { experienceFolder } from './experience/index.lazy.tsx';
 import { projectsFolder } from './projects/index.lazy.tsx';
+import Home from '@/dirs/home.tsx';
 
 
 export const Route = createFileRoute('/')({ component: App })
 
-export const HomeFolder: Folder={
+
+export const HomeFile: File = {
+    title: 'Home',
+    url: '/',
+
+}
+
+export const BaseFolder: Folder={
   title:"Home",
   url : "/",
-  options : [aboutFile,experienceFolder,projectsFolder]
+  options : [HomeFile,aboutFile,experienceFolder,projectsFolder]
   
 }
+
   
 
 function App() {
@@ -24,6 +33,9 @@ function App() {
   
 
   return(
-      <Options folder={HomeFolder}/>
+      <div className='flex flex-row justify-start h-screen p-3'>
+        <Options folder={BaseFolder}/>
+        <Home/>
+      </div>
   )
 }

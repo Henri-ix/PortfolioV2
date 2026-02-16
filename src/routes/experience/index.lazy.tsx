@@ -1,6 +1,5 @@
 import { createLazyFileRoute } from '@tanstack/react-router'
-import {File,Folder} from '../../components/Types'
-import { HomeFolder } from '../index.tsx' 
+import type  {File,Folder} from '../../components/Types'
 import Options from '@/components/Options.tsx'
 
 export const Route = createLazyFileRoute('/experience/')({
@@ -18,6 +17,8 @@ export const experienceFolder: Folder = {
 
 function RouteComponent() {
   return (
-    <Options folder={experienceFolder}/>
+    <div className='flex flex-row justify-between h-screen p-3'>
+      <Options folder={experienceFolder}/>
+    </div>
   )
 }

@@ -4,7 +4,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 import { useState,createContext } from 'react'
 import Header from '../components/Header'
 import Footer from '@/components/Footer'
-import {Folder,File} from '../components/Types.tsx'
+import type {Folder,File} from '../components/Types.tsx'
 
 import appCss from '../styles.css?url'
 
@@ -36,13 +36,13 @@ export const Route = createRootRoute({
 const base : Folder = {
   title : 'Home',
   url : '/',
-  options : [null],
+  options : [],
 }
 
 const FolderContext = createContext<Folder| null>(null);
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  const [text,setText] = useState("Welcome to YanOS");
+  const [text,setText] = useState("Welcome to YanOS, By Ioannis Magalhaes");
   const [directory,setDirectory] = useState<Folder>(base)
 
   return (
@@ -54,9 +54,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <div className='flex flex-col justify-between h-screen p-5 border-2 border-dashed border-yellow-400'>
           <Header/>
           <FolderContext value= {directory}>
-            <div className='flex flex-row justify-between h-screen p-3'>
+            
               {children}
-            </div>
+            
           </FolderContext>
           <Footer text={text}/>
         </div>
