@@ -11,12 +11,20 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExperienceMthreeRouteImport } from './routes/experience/mthree'
+import { Route as ExperienceMelaninMindsRouteImport } from './routes/experience/MelaninMinds'
+import { Route as ExperienceFreelanceRouteImport } from './routes/experience/Freelance'
 
 const ProjectsIndexLazyRouteImport = createFileRoute('/projects/')()
-const ExperienceIndexLazyRouteImport = createFileRoute('/experience/')()
 const AboutIndexLazyRouteImport = createFileRoute('/about/')()
 
+const ExperienceRoute = ExperienceRouteImport.update({
+  id: '/experience',
+  path: '/experience',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -29,55 +37,101 @@ const ProjectsIndexLazyRoute = ProjectsIndexLazyRouteImport.update({
 } as any).lazy(() =>
   import('./routes/projects/index.lazy').then((d) => d.Route),
 )
-const ExperienceIndexLazyRoute = ExperienceIndexLazyRouteImport.update({
-  id: '/experience/',
-  path: '/experience/',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/experience/index.lazy').then((d) => d.Route),
-)
 const AboutIndexLazyRoute = AboutIndexLazyRouteImport.update({
   id: '/about/',
   path: '/about/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/about/index.lazy').then((d) => d.Route))
+const ExperienceMthreeRoute = ExperienceMthreeRouteImport.update({
+  id: '/mthree',
+  path: '/mthree',
+  getParentRoute: () => ExperienceRoute,
+} as any)
+const ExperienceMelaninMindsRoute = ExperienceMelaninMindsRouteImport.update({
+  id: '/MelaninMinds',
+  path: '/MelaninMinds',
+  getParentRoute: () => ExperienceRoute,
+} as any)
+const ExperienceFreelanceRoute = ExperienceFreelanceRouteImport.update({
+  id: '/Freelance',
+  path: '/Freelance',
+  getParentRoute: () => ExperienceRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/experience': typeof ExperienceRouteWithChildren
+  '/experience/Freelance': typeof ExperienceFreelanceRoute
+  '/experience/MelaninMinds': typeof ExperienceMelaninMindsRoute
+  '/experience/mthree': typeof ExperienceMthreeRoute
   '/about/': typeof AboutIndexLazyRoute
-  '/experience/': typeof ExperienceIndexLazyRoute
   '/projects/': typeof ProjectsIndexLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/experience': typeof ExperienceRouteWithChildren
+  '/experience/Freelance': typeof ExperienceFreelanceRoute
+  '/experience/MelaninMinds': typeof ExperienceMelaninMindsRoute
+  '/experience/mthree': typeof ExperienceMthreeRoute
   '/about': typeof AboutIndexLazyRoute
-  '/experience': typeof ExperienceIndexLazyRoute
   '/projects': typeof ProjectsIndexLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/experience': typeof ExperienceRouteWithChildren
+  '/experience/Freelance': typeof ExperienceFreelanceRoute
+  '/experience/MelaninMinds': typeof ExperienceMelaninMindsRoute
+  '/experience/mthree': typeof ExperienceMthreeRoute
   '/about/': typeof AboutIndexLazyRoute
-  '/experience/': typeof ExperienceIndexLazyRoute
   '/projects/': typeof ProjectsIndexLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about/' | '/experience/' | '/projects/'
+  fullPaths:
+    | '/'
+    | '/experience'
+    | '/experience/Freelance'
+    | '/experience/MelaninMinds'
+    | '/experience/mthree'
+    | '/about/'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/experience' | '/projects'
-  id: '__root__' | '/' | '/about/' | '/experience/' | '/projects/'
+  to:
+    | '/'
+    | '/experience'
+    | '/experience/Freelance'
+    | '/experience/MelaninMinds'
+    | '/experience/mthree'
+    | '/about'
+    | '/projects'
+  id:
+    | '__root__'
+    | '/'
+    | '/experience'
+    | '/experience/Freelance'
+    | '/experience/MelaninMinds'
+    | '/experience/mthree'
+    | '/about/'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExperienceRoute: typeof ExperienceRouteWithChildren
   AboutIndexLazyRoute: typeof AboutIndexLazyRoute
-  ExperienceIndexLazyRoute: typeof ExperienceIndexLazyRoute
   ProjectsIndexLazyRoute: typeof ProjectsIndexLazyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/experience': {
+      id: '/experience'
+      path: '/experience'
+      fullPath: '/experience'
+      preLoaderRoute: typeof ExperienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -92,13 +146,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsIndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/experience/': {
-      id: '/experience/'
-      path: '/experience'
-      fullPath: '/experience/'
-      preLoaderRoute: typeof ExperienceIndexLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/about/': {
       id: '/about/'
       path: '/about'
@@ -106,13 +153,50 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutIndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experience/mthree': {
+      id: '/experience/mthree'
+      path: '/mthree'
+      fullPath: '/experience/mthree'
+      preLoaderRoute: typeof ExperienceMthreeRouteImport
+      parentRoute: typeof ExperienceRoute
+    }
+    '/experience/MelaninMinds': {
+      id: '/experience/MelaninMinds'
+      path: '/MelaninMinds'
+      fullPath: '/experience/MelaninMinds'
+      preLoaderRoute: typeof ExperienceMelaninMindsRouteImport
+      parentRoute: typeof ExperienceRoute
+    }
+    '/experience/Freelance': {
+      id: '/experience/Freelance'
+      path: '/Freelance'
+      fullPath: '/experience/Freelance'
+      preLoaderRoute: typeof ExperienceFreelanceRouteImport
+      parentRoute: typeof ExperienceRoute
+    }
   }
 }
 
+interface ExperienceRouteChildren {
+  ExperienceFreelanceRoute: typeof ExperienceFreelanceRoute
+  ExperienceMelaninMindsRoute: typeof ExperienceMelaninMindsRoute
+  ExperienceMthreeRoute: typeof ExperienceMthreeRoute
+}
+
+const ExperienceRouteChildren: ExperienceRouteChildren = {
+  ExperienceFreelanceRoute: ExperienceFreelanceRoute,
+  ExperienceMelaninMindsRoute: ExperienceMelaninMindsRoute,
+  ExperienceMthreeRoute: ExperienceMthreeRoute,
+}
+
+const ExperienceRouteWithChildren = ExperienceRoute._addFileChildren(
+  ExperienceRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExperienceRoute: ExperienceRouteWithChildren,
   AboutIndexLazyRoute: AboutIndexLazyRoute,
-  ExperienceIndexLazyRoute: ExperienceIndexLazyRoute,
   ProjectsIndexLazyRoute: ProjectsIndexLazyRoute,
 }
 export const routeTree = rootRouteImport

@@ -11,3 +11,10 @@ export interface Folder extends File{
     parent ?: string;
 
 }
+
+
+export interface experience {
+    file : File,
+    jobTitle: String,
+    date : String
+}

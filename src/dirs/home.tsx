@@ -1,8 +1,10 @@
 "use client"; // Remove this line if not using Next.js App Router
 import React, { useState, useEffect } from 'react';
+import Typewriter from 'typewriter-effect'
 
 export default function Home() {
     const [displayedArt, setDisplayedArt] = useState("");
+    
     
     // I have moved the art to the left margin so it aligns correctly.
     // I kept every character of the art exactly as provided.
@@ -77,7 +79,11 @@ export default function Home() {
                 {displayedArt}
             </pre>
             <div className=' ml-4 text-yellow-400'>
-                <h2 className="text-2xl">{`> Ioannis Magalhaes`}</h2>
+                <h2 className="text-2xl">
+                    <Typewriter onInit={(typewriter)=>{
+                    typewriter.typeString('> Ioannis Magalhaes').start()
+                }}/>
+                </h2>
                 <h2 className="text-md">{`> Software Engineer`}</h2>
                 <h2 className="text-md">{`> Freelance Web Developer`}</h2>
                 <h2 className="text-md">{`> Tech Enthusiast`}</h2>

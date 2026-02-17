@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import Options from '@/components/Options';
 import type  {Folder,File} from '../components/Types'
 import { aboutFile } from './about/index.lazy';
-import { experienceFolder } from './experience/index.lazy.tsx';
+import { experienceFolder } from './experience.tsx';
 import { projectsFolder } from './projects/index.lazy.tsx';
 import Home from '@/dirs/home.tsx';
 
