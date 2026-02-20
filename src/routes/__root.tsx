@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import Footer from '@/components/Footer'
 import type {Folder,File} from '../components/Types.tsx'
 
-import '../styles.css'
+import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -20,6 +20,12 @@ export const Route = createRootRoute({
       },
       {
         title: 'Ioannis Magalhaes',
+      },
+    ],
+    links: [
+      {
+        rel: 'stylesheet',
+        href: appCss,
       },
     ],
   }),
