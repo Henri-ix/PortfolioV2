@@ -51,7 +51,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div className='flex flex-col justify-between h-screen p-5 border-2 border-dashed border-yellow-400'>
+        <div className='flex flex-col justify-between h-full md:h-screen p-5 border-2 border-dashed border-yellow-400'>
           <Header/>
           <FolderContext value= {directory}>
             

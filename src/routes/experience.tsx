@@ -22,7 +22,7 @@ function RouteComponent() {
   
 
   return (
-    <div className='flex flex-row justify-start h-screen p-3'>
+    <div className='flex flex-col sm:flex-row justify-start h-full'>
       <Options folder={experienceFolder}/>
       <Outlet/>
     </div>

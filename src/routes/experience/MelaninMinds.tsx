@@ -30,7 +30,7 @@ export function RouteComponent() {
   return(
     <div className='text-yellow-400 m-10'>
         <ExperienceHeader Details={Details}/>
-        <ul className='text-lg m-5 max-w-300'>
+        <ul className='text-xs md:text-xs lg:text-sm xl:text-base 2xl:text-xl ml-8 max-w-300'>
             <li className='m-5'>
                 {`> Built and optimized mobile interfaces in React Native, improving usability and reducing input errors through
                     conditional rendering, streamlined navigation, and responsive design.`}

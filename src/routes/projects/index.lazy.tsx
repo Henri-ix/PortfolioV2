@@ -19,8 +19,9 @@ export const projectsFolder: Folder = {
 
 function RouteComponent() {
   return (
-     <div className='flex flex-row justify-between h-screen p-3'>
+     <div className='flex flex-col sm:flex-row justify-start h-full'>
       <Options folder={projectsFolder}/>
+      <h2>Coming Soon...</h2>
     </div>
   )
 }

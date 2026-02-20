@@ -18,3 +18,9 @@ export interface experience {
     jobTitle: String,
     date : String
 }
+
+export interface project{
+    title : string,
+    imageURl: string,
+    
+}

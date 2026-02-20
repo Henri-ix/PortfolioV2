@@ -74,22 +74,22 @@ export default function Home() {
     }, []);
 
     return (
-        <div className='flex flex-row justify-start items-start m-10'>
-            <pre className="text-yellow-400 text-[0.7rem] leading-[0.7rem] tracking-tighter font-mono select-none min-w-140">
+        <div className='flex flex-col justify-center items-center md:flex-row md:justify-start md:items-start m-10 xl:justify-between'>
+            <pre className="text-yellow-400 text-[0.3rem] leading-[0.3rem] m-5  tracking-tighter font-mono select-none lg:text-[0.4rem] lg:leading-[0.4rem]  2xl:text-[0.8rem] 2xl:leading-[0.8rem] ">
                 {displayedArt}
             </pre>
-            <div className=' ml-4 text-yellow-400'>
-                <h2 className="text-2xl">
+            <div className='  text-yellow-400 md:ml-4 '>
+                <h2 className="text-lg md:text-xl lg:text-3xl ">
                     <Typewriter onInit={(typewriter)=>{
                     typewriter.typeString('> Ioannis Magalhaes').start()
                 }}/>
                 </h2>
-                <h2 className="text-md">{`> Software Engineer`}</h2>
-                <h2 className="text-md">{`> Freelance Web Developer`}</h2>
-                <h2 className="text-md">{`> Tech Enthusiast`}</h2>
-                <h3 className='p-4 justify-center items-center max-w-150'>I'm a Software Engineer based in London, UK with a, sometimes, overwhelming passion and enthusiasm for technology. 
+                <h2 className="pt-2 text-sm md:text-md lg:text-xl">{`> Software Engineer`}</h2>
+                <h2 className="pt-2 text-sm md:text-md lg:text-xl">{`> Freelance Web Developer`}</h2>
+                <h2 className="pt-2 text-sm md:text-md lg:text-xl">{`> Tech Enthusiast`}</h2>
+                <h3 className='p-2 justify-center items-center  text-xs lg:text-sm xl:text-base 2xl:text-xl '>I'm a Software Engineer based in London, UK with a, sometimes, overwhelming passion and enthusiasm for technology. 
                     I make Full-Stack web applications for businesses of varying sizes, notably increasing customer traffic by 200% and improving business discovery. I also work on a variety of different projects,
-                    from a Terminal-first Computer Vision program that let's you pick the model you'd like to work with, to End-to-End web/mobile applications. I am also deeply intrigued by robotics
+                    from a Terminal-first Computer Vision program that let's you pick the model you'd like to work with, to End-to-End web/mobile applications. I am also deeply intrigued by robotics.
                 </h3>
             </div>
         </div>
