@@ -22,5 +22,6 @@ export interface experience {
 export interface project{
     title : string,
     imageURl: string,
-    
+    desc: string,
+    link?:string,
 }
