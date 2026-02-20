@@ -75,7 +75,7 @@ export default function Home() {
 
     return (
         <div className='flex flex-col justify-center items-center md:flex-row md:justify-start md:items-start m-10 xl:justify-between'>
-            <pre className="text-yellow-400 text-[0.3rem] leading-[0.3rem] m-5  tracking-tighter font-mono select-none lg:text-[0.4rem] lg:leading-[0.4rem]  2xl:text-[0.8rem] 2xl:leading-[0.8rem] ">
+            <pre className="text-yellow-400 text-[0.3rem] leading-[0.3rem] m-5  tracking-tighter font-mono select-none lg:text-[0.4rem] lg:leading-[0.4rem]  2xl:text-[0.6rem] 2xl:leading-[0.6rem] ">
                 {displayedArt}
             </pre>
             <div className='  text-yellow-400 md:ml-4 '>
