@@ -28,7 +28,7 @@ jobs:
 
       - name: Build
         if: success()
-        run: vite build
+        run: npm run build
 
       - name: Deploy to Netlify
         if: success()
