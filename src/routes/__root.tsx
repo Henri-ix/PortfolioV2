@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 import type {Folder,File} from '../components/Types.tsx'
 
 import appCss from '../styles.css?url'
+import logo from '../assets/images/logo.png'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -19,13 +20,19 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Ioannis Magalhaes',
+        
+        title: 'Ioannis',
       },
     ],
     links: [
       {
         rel: 'stylesheet',
         href: appCss,
+      },
+      {
+        rel:"icon",
+        href: logo
+
       },
     ],
   }),
