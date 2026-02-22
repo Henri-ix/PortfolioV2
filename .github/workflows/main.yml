@@ -28,11 +28,11 @@ jobs:
 
       - name: Build
         if: success()
-        run: npm run build
+        run: vite build
 
       - name: Deploy to Netlify
         if: success()
-        run: npx netlify-cli deploy --prod --dir=dist/client
+        run: npx netlify-cli deploy --site $NETLIFY_SITE_ID --dir=dist/client --prod-if-unlocked
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
