@@ -33,9 +33,6 @@ export function RouteComponent() {
                 {`> Interviewed clients to gain an understanding of what their needs and requirements are for the product`}
             </li>
             <li className='m-5'>
-                {`>  Developed Solutions that increased the traffic of small businesses by 100% through SEO and setting up their business with google business.`}
-            </li>
-            <li className='m-5'>
                 {`> Developed Solutions that increased the traffic of small businesses by 100% through SEO and setting up their business with google business.`}
             </li>
             <li className='m-5'>
