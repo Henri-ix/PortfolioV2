@@ -1,10 +1,12 @@
 import type { project } from "@/components/Types";
 import { vDay } from "./v-day";
 import { FacialRecog } from "./facial-recog";
+import { researchReason } from "./research-reason";
 
 const projectList: project[] = [
     vDay,
-    FacialRecog
+    FacialRecog,
+    researchReason,
     // Add more projects here as you create them
 ];
 
